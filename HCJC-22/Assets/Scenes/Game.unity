@@ -319,9 +319,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainCam: {fileID: 1478281502}
-  PlayerAnim: {fileID: 0}
+  PlayerAnim: {fileID: 161640486}
   SwipeSpeed: 2
-  Speed: 5
+  Speed: 2
 --- !u!114 &95192180
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -347,6 +347,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 161640485}
+  - component: {fileID: 161640486}
   m_Layer: 0
   m_Name: Emotions
   m_TagString: Untagged
@@ -382,6 +383,26 @@ Transform:
   m_Father: {fileID: 95192178}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!95 &161640486
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 161640484}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e4021cd3eb5154dca8830e5594a09c53, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &246806475
 GameObject:
   m_ObjectHideFlags: 0
