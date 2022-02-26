@@ -1,47 +1,49 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting.FullSerializer;
 using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-[SerializeField] PlayerManager playerManager;
-[SerializeField] float movementSpeed;
-[SerializeField] float controlSpeed;
+    public Camera mainCam;
+    public Animator PlayerAnim;
+    public float SwipeSpeed = 10f;
+    public float Speed = 10f;
+    private Transform localTransform;
+    private Vector3 lastMousePos;
+    private Vector3 mousePos;
+    private Vector3 newPosForTrans;
 
-//Touch Settings
-[SerializeField] bool isTouching;
-float touchPosX;
-Vector3 direction;
-
-void Start()
-{
-        
-}
-
-
-void Update()
-{
-    GetInput();
-}
-
-private void FixedUpdate() {
-        
-    if(playerManager.playerState==PlayerManager.PlayerState.Move) {
-        transform.position += Vector3.forward * movementSpeed * Time.fixedDeltaTime;
-    }
-    if(isTouching) {
-        touchPosX += Input.GetAxis("Mouse X") * controlSpeed *Time.fixedDeltaTime;
+    private void Start()
+    {
+        localTransform = GetComponent<Transform>();
     }
 
-    transform.position = new Vector3(touchPosX, transform.position.y, transform.position.z);
-}
+    private void Update()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            if(PlayerAnim)
+                PlayerAnim.SetTrigger("Run");
+        }
+        else if(Input.GetMouseButton(0)) //Hold
+        {
+            mousePos = mainCam.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10f));
+            float xDiff = mousePos.x - lastMousePos.x;
 
-void GetInput() {
-    if(Input.GetMouseButton(0)) {
-        isTouching=true;
+            newPosForTrans.x = localTransform.position.x + xDiff * Time.deltaTime * SwipeSpeed;
+            newPosForTrans.y = localTransform.position.y;
+            newPosForTrans.z = localTransform.position.z;
+
+            localTransform.position = newPosForTrans + localTransform.forward * Speed * Time.deltaTime;
+
+            lastMousePos = mousePos;
+        }
+        else if (Input.GetMouseButtonUp(0))
+        {
+            if(PlayerAnim)
+                PlayerAnim.SetTrigger("Walk");
+        }
     }
-    else {
-        isTouching=false;
-    }
-}
 }
