@@ -8,8 +8,8 @@ public class Movement : MonoBehaviour
 {
     public Camera mainCam;
     public Animator PlayerAnim;
-    public float SwipeSpeed = 10f;
-    public float Speed = 10f;
+    public float SwipeSpeed = 5f;
+    public float Speed = 2f;
     private Transform localTransform;
     private Vector3 lastMousePos;
     private Vector3 mousePos;
