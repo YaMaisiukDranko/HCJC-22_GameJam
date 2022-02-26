@@ -11,12 +11,13 @@ public class Emotions : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        print("touch " + gameObject.tag);
+        print("touch " + other.tag);
         if (other.CompareTag("Joy"))
         {
             //collectJoySound.Play();
-            joys += 1;
+            joys += 1; // Add Joys
             print("joys = " + joys);
+            Destroy(other.gameObject);
         }
        
     }
