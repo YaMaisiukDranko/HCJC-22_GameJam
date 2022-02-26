@@ -22,13 +22,9 @@ public class Movement : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            if(PlayerAnim)
+        if(PlayerAnim)
                 PlayerAnim.SetTrigger("Run");
-        }
-        else if(Input.GetMouseButton(0)) //Hold
-        {
+       
             mousePos = mainCam.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10f));
             float xDiff = mousePos.x - lastMousePos.x;
 
@@ -39,11 +35,7 @@ public class Movement : MonoBehaviour
             localTransform.position = newPosForTrans + localTransform.forward * Speed * Time.deltaTime;
 
             lastMousePos = mousePos;
-        }
-        else if (Input.GetMouseButtonUp(0))
-        {
-            if(PlayerAnim)
-                PlayerAnim.SetTrigger("Walk");
-        }
+            
+        
     }
 }
