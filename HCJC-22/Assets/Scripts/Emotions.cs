@@ -15,7 +15,7 @@ public class Emotions : MonoBehaviour
     public int sadness;
     public bool HappyDance = false;
     public bool SadDance = false;
-    private Animation PlayerAnim;
+    private Animator PlayerAnim;
 
     
     [Header("Objects")] 
@@ -58,12 +58,12 @@ public class Emotions : MonoBehaviour
             FinishEmotions();
             if (HappyDance == true || SadDance == false)
             {
-                PlayerAnim.Stop("Walking");
+                
                 PlayerAnim.Play("Silly Dancing");
             }
             else
             {
-                PlayerAnim.Stop("Walking");
+                
                 PlayerAnim.Play("Crying");
             }
         }

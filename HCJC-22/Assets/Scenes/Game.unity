@@ -34278,6 +34278,7 @@ GameObject:
   - component: {fileID: 1973710560}
   - component: {fileID: 1973710562}
   - component: {fileID: 1973710561}
+  - component: {fileID: 1973710563}
   m_Layer: 0
   m_Name: FinishLine
   m_TagString: Finish
@@ -34329,6 +34330,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1973710563
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1973710559}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f09c585c004147a2961cb5be05a3f40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayerAnimator: {fileID: 614591326}
+  SadAnimation: {fileID: -203655887218126122, guid: b299e6b7824604986a7c9fd3b8976eed, type: 3}
 --- !u!1 &1974094497
 GameObject:
   m_ObjectHideFlags: 0
