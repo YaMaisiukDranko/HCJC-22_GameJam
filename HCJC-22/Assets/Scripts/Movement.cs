@@ -8,12 +8,13 @@ public class Movement : MonoBehaviour
 {
     public Camera mainCam;
     public Animator PlayerAnim;
-    public float SwipeSpeed = 10f;
-    public float Speed = 10f;
+    public float SwipeSpeed = 5f;
+    public float Speed = 2f;
     private Transform localTransform;
     private Vector3 lastMousePos;
     private Vector3 mousePos;
     private Vector3 newPosForTrans;
+    public bool StartRun = false;
 
     private void Start()
     {
@@ -22,9 +23,15 @@ public class Movement : MonoBehaviour
 
     private void Update()
     {
-        if(PlayerAnim)
-                PlayerAnim.SetTrigger("Run");
-       
+        Run();
+    }
+
+    void Run()
+    {
+        if (StartRun == true)
+        {
+            PlayerAnim.SetTrigger("Run");
+            PlayerAnim.Play("Walking");
             mousePos = mainCam.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10f));
             float xDiff = mousePos.x - lastMousePos.x;
 
@@ -35,7 +42,11 @@ public class Movement : MonoBehaviour
             localTransform.position = newPosForTrans + localTransform.forward * Speed * Time.deltaTime;
 
             lastMousePos = mousePos;
-            
-        
+        }
+        else
+        {
+            PlayerAnim.SetTrigger("Idle");
+            PlayerAnim.Play("Breathing Idle");
+        }
     }
 }
