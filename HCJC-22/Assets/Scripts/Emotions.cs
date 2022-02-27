@@ -34,7 +34,7 @@ public class Emotions : MonoBehaviour
         if (other.CompareTag("Joy"))
         {
             //collectJoySound.Play();
-            joys += 2; // Add Joys
+            joys += 1; // Add Joys
             sadness -= 1;
             print("joys = " + joys);
             Destroy(other.gameObject);
@@ -56,12 +56,17 @@ public class Emotions : MonoBehaviour
 
     void ControlEmotion()
     {
-        if (sadness > 1 && sadness > joys)
+        if (sadness > 2 && sadness > joys)
+        {
+            FirstCloud.SetActive(true);
+            
+        }
+        else if (sadness > 3 && sadness > joys)
         {
             FirstCloud.SetActive(true);
             SecondCloud.SetActive(true);
         }
-        else if (sadness > 2 && sadness > joys)
+        else if (sadness > 4 && sadness > joys)
         {
             FirstCloud.SetActive(true);
             SecondCloud.SetActive(true);
