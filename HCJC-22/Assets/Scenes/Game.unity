@@ -25724,6 +25724,8 @@ MonoBehaviour:
   collectSound: {fileID: 1442835749}
   joys: 0
   sadness: 0
+  HappyDance: 0
+  SadDance: 0
   FirstCloud: {fileID: 1221031807}
   SecondCloud: {fileID: 645161408}
   Rain: {fileID: 902094395}
@@ -25741,7 +25743,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 395930557943d4d1cbb1676576ce45e6, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -34306,7 +34308,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1973710559}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 4.816388, y: 3.311389, z: 3.6268234}
