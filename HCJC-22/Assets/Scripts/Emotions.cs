@@ -19,6 +19,8 @@ public class Emotions : MonoBehaviour
     public GameObject SecondCloud;
     public GameObject Rain;
     public ParticleSystem RainParticleSystem;
+    public GameObject Sun;
+    public GameObject SunRays;
 
     private void Update()
     {
@@ -44,10 +46,41 @@ public class Emotions : MonoBehaviour
             print("sadness = " + sadness);
             Destroy(other.gameObject);
         }
+
+        if (other.CompareTag("Finish"))
+        {
+            FinishEmotions();
+        }
        
     }
 
     void ControlEmotion()
+    {
+        if (sadness > 1 && sadness > joys)
+        {
+            FirstCloud.SetActive(true);
+            SecondCloud.SetActive(true);
+        }
+        else if (sadness > 2 && sadness > joys)
+        {
+            FirstCloud.SetActive(true);
+            SecondCloud.SetActive(true);
+            Rain.SetActive(true);
+            RainParticleSystem.Play(true);
+        }
+
+        if (joys > 1 && joys > sadness)
+        {
+            Sun.SetActive(true);
+        }
+        else if (joys > 2 && joys > sadness)
+        {
+            SunRays.SetActive(true);
+            Sun.SetActive(true);
+        }
+    }
+
+    void FinishEmotions()
     {
         if (joys > sadness)
         {
@@ -59,25 +92,9 @@ public class Emotions : MonoBehaviour
             _movement.PlayerAnim.SetTrigger("Sad");
             _movement.PlayerAnim.Play("Crying");
         }
-        
-        if(sadness == joys)
+        else if(sadness == joys)
         {
             _movement.PlayerAnim.Play("Silly Dancing");
         }
-        else if (sadness > 1 && sadness > joys)
-        {
-            FirstCloud.SetActive(true);
-            SecondCloud.SetActive(true);
-        }
-        else if (sadness > 2 && sadness > joys)
-        {
-            FirstCloud.SetActive(true);
-            SecondCloud.SetActive(true);
-            //Rain.SetActive(true);
-            RainParticleSystem.Play(true);
-        }
-        
-
-
     }
 }
