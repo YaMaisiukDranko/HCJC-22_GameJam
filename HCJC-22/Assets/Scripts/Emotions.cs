@@ -8,7 +8,7 @@ public class Emotions : MonoBehaviour
     private Movement _movement;
     
     public GameObject scoreText;
-    public AudioSource collectJoySound;
+    public AudioSource collectSound;
     
     [Header("Emotions")]
     public int joys;
@@ -33,7 +33,7 @@ public class Emotions : MonoBehaviour
         
         if (other.CompareTag("Joy"))
         {
-            //collectJoySound.Play();
+            collectSound.Play();
             joys += 1; // Add Joys
             sadness -= 1;
             print("joys = " + joys);
@@ -41,6 +41,7 @@ public class Emotions : MonoBehaviour
         }
         else if (other.CompareTag("Sadness"))
         {
+            collectSound.Play();
             sadness += 1; //Add Sadness
             joys -= 1;
             print("sadness = " + sadness);
