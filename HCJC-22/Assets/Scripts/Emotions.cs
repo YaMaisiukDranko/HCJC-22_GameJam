@@ -6,6 +6,7 @@ using UnityEngine;
 public class Emotions : MonoBehaviour
 {
     private Movement _movement;
+    private Manager _manager;
     
     public GameObject scoreText;
     public AudioSource collectSound;
@@ -56,6 +57,7 @@ public class Emotions : MonoBehaviour
         {
             print("Finish!");
             FinishEmotions();
+            
             if (HappyDance == true)
             {
                 PlayerAnim.Play("Silly Dancing");
@@ -64,6 +66,7 @@ public class Emotions : MonoBehaviour
             {
                 PlayerAnim.Play("Crying");
             }
+            _manager.FinishMenu();
         }
        
     }

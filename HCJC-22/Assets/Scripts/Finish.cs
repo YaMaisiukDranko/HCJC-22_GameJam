@@ -8,6 +8,7 @@ using UnityEngine.Animations;
 public class Finish : MonoBehaviour
 {
     private Movement _movement;
+    private Manager _manager;
     public Animator PlayerAnimator;
     public AnimationClip SadAnimation;
 
@@ -15,10 +16,8 @@ public class Finish : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            //PlayerAnimator.speed = 0;
             _movement.StartRun = false;
-            PlayerAnimator.Play("Crying");
-            
+            _manager.FinishMenu();
         }
     }
 }
