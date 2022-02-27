@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class Emotions : MonoBehaviour
 {
+    private Movement _movement;
+    
     public GameObject scoreText;
     public AudioSource collectJoySound;
     
@@ -49,7 +51,11 @@ public class Emotions : MonoBehaviour
     {
         if (joys > sadness)
         {
-
+            _movement.PlayerAnim.SetTrigger("Happy");
+        }
+        else if (sadness > joys)
+        {
+            _movement.PlayerAnim.SetTrigger("Sad");
         }
         
         

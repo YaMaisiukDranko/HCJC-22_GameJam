@@ -14,7 +14,7 @@ public class Movement : MonoBehaviour
     private Vector3 lastMousePos;
     private Vector3 mousePos;
     private Vector3 newPosForTrans;
-    public bool StartRun;
+    public bool StartRun = false;
 
     private void Start()
     {
@@ -24,15 +24,13 @@ public class Movement : MonoBehaviour
     private void Update()
     {
         Run();
-            
-        
     }
 
     void Run()
     {
         if (StartRun == true)
         {
-
+            PlayerAnim.SetTrigger("Run");
             mousePos = mainCam.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10f));
             float xDiff = mousePos.x - lastMousePos.x;
 
@@ -46,7 +44,7 @@ public class Movement : MonoBehaviour
         }
         else
         {
-            
+            PlayerAnim.SetTrigger("Idle");
         }
     }
 }
