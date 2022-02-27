@@ -57,11 +57,15 @@ public class Emotions : MonoBehaviour
         {
             _movement.PlayerAnim.SetTrigger("Sad");
         }
-        
-        
-        if(sadness == 1)
+        else
         {
-            FirstCloud.SetActive(true);
+            
+        }
+        
+        
+        if(sadness == joys)
+        {
+            
         }
         else if (sadness > 1 && sadness > joys)
         {
