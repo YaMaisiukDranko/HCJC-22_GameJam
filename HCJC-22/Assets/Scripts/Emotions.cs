@@ -56,14 +56,12 @@ public class Emotions : MonoBehaviour
         {
             print("Finish!");
             FinishEmotions();
-            if (HappyDance == true || SadDance == false)
+            if (HappyDance == true)
             {
-                
                 PlayerAnim.Play("Silly Dancing");
             }
             else
             {
-                
                 PlayerAnim.Play("Crying");
             }
         }
