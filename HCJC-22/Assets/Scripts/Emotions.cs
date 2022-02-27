@@ -6,14 +6,19 @@ using UnityEngine;
 public class Emotions : MonoBehaviour
 {
     private Movement _movement;
+    private Manager _manager;
     
     public GameObject scoreText;
-    public AudioSource collectJoySound;
+    public AudioSource collectSound;
     
     [Header("Emotions")]
     public int joys;
     public int sadness;
+    public bool HappyDance = false;
+    public bool SadDance = false;
+    private Animator PlayerAnim;
 
+    
     [Header("Objects")] 
     public GameObject FirstCloud;
     public GameObject SecondCloud;
@@ -33,7 +38,7 @@ public class Emotions : MonoBehaviour
         
         if (other.CompareTag("Joy"))
         {
-            //collectJoySound.Play();
+            collectSound.Play();
             joys += 1; // Add Joys
             sadness -= 1;
             print("joys = " + joys);
@@ -41,6 +46,7 @@ public class Emotions : MonoBehaviour
         }
         else if (other.CompareTag("Sadness"))
         {
+            collectSound.Play();
             sadness += 1; //Add Sadness
             joys -= 1;
             print("sadness = " + sadness);
@@ -51,6 +57,16 @@ public class Emotions : MonoBehaviour
         {
             print("Finish!");
             FinishEmotions();
+            
+            if (HappyDance == true)
+            {
+                PlayerAnim.Play("Silly Dancing");
+            }
+            else
+            {
+                PlayerAnim.Play("Crying");
+            }
+            _manager.FinishMenu();
         }
        
     }
@@ -104,17 +120,18 @@ public class Emotions : MonoBehaviour
         
         if (joys > sadness)
         {
-            _movement.PlayerAnim.SetTrigger("Happy");
-            _movement.PlayerAnim.Play("Silly Dancing");
+            print("Be happy");
+            HappyDance = true;
         }
         else if (sadness > joys)
         {
-            _movement.PlayerAnim.SetTrigger("Sad");
-            _movement.PlayerAnim.Play("Crying");
+            print("im sad");
+            SadDance = true;
         }
         else if(sadness == joys)
         {
-            _movement.PlayerAnim.Play("Silly Dancing");
+            print("50/50");
+            HappyDance = true;
         }
     }
 }
