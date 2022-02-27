@@ -6,8 +6,9 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
+    private AnimationManager AnimMngr;
+    
     public Camera mainCam;
-    public Animator PlayerAnim;
     public float SwipeSpeed = 5f;
     public float Speed = 2f;
     private Transform localTransform;
@@ -22,10 +23,8 @@ public class Movement : MonoBehaviour
 
     private void Update()
     {
-        if(PlayerAnim)
-                PlayerAnim.SetTrigger("Run");
-       
-            mousePos = mainCam.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10f));
+        AnimMngr.animator.SetBool("IsMoving" , true);
+        mousePos = mainCam.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10f));
             float xDiff = mousePos.x - lastMousePos.x;
 
             newPosForTrans.x = localTransform.position.x + xDiff * Time.deltaTime * SwipeSpeed;
