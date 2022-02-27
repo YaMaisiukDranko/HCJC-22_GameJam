@@ -49,6 +49,7 @@ public class Emotions : MonoBehaviour
 
         if (other.CompareTag("Finish"))
         {
+            print("Finish!");
             FinishEmotions();
         }
        
@@ -59,12 +60,15 @@ public class Emotions : MonoBehaviour
         if (sadness > 2 && sadness > joys)
         {
             FirstCloud.SetActive(true);
-            
+            Sun.SetActive(false);
+            SunRays.SetActive(false);
         }
         else if (sadness > 3 && sadness > joys)
         {
             FirstCloud.SetActive(true);
             SecondCloud.SetActive(true);
+            Sun.SetActive(false);
+            SunRays.SetActive(false);
         }
         else if (sadness > 4 && sadness > joys)
         {
@@ -72,14 +76,20 @@ public class Emotions : MonoBehaviour
             SecondCloud.SetActive(true);
             Rain.SetActive(true);
             RainParticleSystem.Play(true);
+            Sun.SetActive(false);
+            SunRays.SetActive(false);
         }
 
         if (joys > 1 && joys > sadness)
         {
+            FirstCloud.SetActive(false);
+            SecondCloud.SetActive(false);
             Sun.SetActive(true);
         }
         else if (joys > 2 && joys > sadness)
         {
+            FirstCloud.SetActive(false);
+            SecondCloud.SetActive(false);
             SunRays.SetActive(true);
             Sun.SetActive(true);
         }
@@ -87,6 +97,11 @@ public class Emotions : MonoBehaviour
 
     void FinishEmotions()
     {
+        FirstCloud.SetActive(false);
+        SecondCloud.SetActive(false);
+        Sun.SetActive(false);
+        SunRays.SetActive(false);
+        
         if (joys > sadness)
         {
             _movement.PlayerAnim.SetTrigger("Happy");
