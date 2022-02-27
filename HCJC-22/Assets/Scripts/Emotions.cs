@@ -32,4 +32,12 @@ public class Emotions : MonoBehaviour
         }
        
     }
+
+    void ControlEmotion()
+    {
+        if (joys == 1 && joys > sadness)
+        {
+            
+        }
+    }
 }
