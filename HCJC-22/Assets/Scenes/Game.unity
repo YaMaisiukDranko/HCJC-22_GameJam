@@ -4314,6 +4314,10 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 63ebe84cf44164cc985933fbc980971a, type: 2}
+    - target: {fileID: 5866666021909216657, guid: 2961d888bb03cfb4da4e81dc8b4bcf2b, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6831079847986454548, guid: 2961d888bb03cfb4da4e81dc8b4bcf2b, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -15424,8 +15428,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.7004815, y: 1.6555333, z: 0.6402483}
-  m_Center: {x: -0.03520754, y: 0.95613, z: 0.022158623}
+  m_Size: {x: 0.41611463, y: 1.6555333, z: 0.455873}
+  m_Center: {x: 0.16585782, y: 0.95613, z: 0.07313609}
 --- !u!114 &1442835748
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19370,8 +19374,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 4.816388, y: 1, z: 0.8722763}
-  m_Center: {x: 0.11082268, y: 0, z: 0.06386185}
+  m_Size: {x: 4.816388, y: 3.311389, z: 0.8722763}
+  m_Center: {x: 0.11082268, y: 1.1556945, z: 0.06386185}
 --- !u!54 &1973710562
 Rigidbody:
   m_ObjectHideFlags: 0

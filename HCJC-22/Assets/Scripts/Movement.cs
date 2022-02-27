@@ -31,6 +31,7 @@ public class Movement : MonoBehaviour
         if (StartRun == true)
         {
             PlayerAnim.SetTrigger("Run");
+            PlayerAnim.Play("Walking");
             mousePos = mainCam.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10f));
             float xDiff = mousePos.x - lastMousePos.x;
 
@@ -45,6 +46,7 @@ public class Movement : MonoBehaviour
         else
         {
             PlayerAnim.SetTrigger("Idle");
+            PlayerAnim.Play("Breathing Idle");
         }
     }
 }

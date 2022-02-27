@@ -52,20 +52,17 @@ public class Emotions : MonoBehaviour
         if (joys > sadness)
         {
             _movement.PlayerAnim.SetTrigger("Happy");
+            _movement.PlayerAnim.Play("Silly Dancing");
         }
         else if (sadness > joys)
         {
             _movement.PlayerAnim.SetTrigger("Sad");
+            _movement.PlayerAnim.Play("Crying");
         }
-        else
-        {
-            
-        }
-        
         
         if(sadness == joys)
         {
-            
+            _movement.PlayerAnim.Play("Silly Dancing");
         }
         else if (sadness > 1 && sadness > joys)
         {
