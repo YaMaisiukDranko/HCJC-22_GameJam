@@ -13,7 +13,10 @@ public class Emotions : MonoBehaviour
     [Header("Emotions")]
     public int joys;
     public int sadness;
+    public bool HappyDance = false;
+    public bool SadDance = false;
 
+    
     [Header("Objects")] 
     public GameObject FirstCloud;
     public GameObject SecondCloud;
@@ -52,6 +55,14 @@ public class Emotions : MonoBehaviour
         {
             print("Finish!");
             FinishEmotions();
+            if (HappyDance == true && SadDance == false)
+            {
+                _movement.PlayerAnim.Play("Silly Dancing");
+            }
+            else
+            {
+                _movement.PlayerAnim.Play("Crying");
+            }
         }
        
     }
@@ -106,17 +117,17 @@ public class Emotions : MonoBehaviour
         if (joys > sadness)
         {
             print("Be happy");
-            _movement.PlayerAnim.Play("Silly Dancing");
+            HappyDance = true;
         }
         else if (sadness > joys)
         {
             print("im sad");
-            _movement.PlayerAnim.Play("Crying");
+            SadDance = true;
         }
         else if(sadness == joys)
         {
             print("50/50");
-            _movement.PlayerAnim.Play("Silly Dancing");
+            HappyDance = true;
         }
     }
 }
