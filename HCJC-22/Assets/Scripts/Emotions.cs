@@ -11,7 +11,17 @@ public class Emotions : MonoBehaviour
     [Header("Emotions")]
     public int joys;
     public int sadness;
-    
+
+    [Header("Objects")] 
+    public GameObject FirstCloud;
+    public GameObject SecondCloud;
+    public GameObject Rain;
+    public ParticleSystem RainParticleSystem;
+
+    private void Update()
+    {
+        ControlEmotion();
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -20,13 +30,15 @@ public class Emotions : MonoBehaviour
         if (other.CompareTag("Joy"))
         {
             //collectJoySound.Play();
-            joys += 1; // Add Joys
+            joys += 2; // Add Joys
+            sadness -= 1;
             print("joys = " + joys);
             Destroy(other.gameObject);
         }
         else if (other.CompareTag("Sadness"))
         {
             sadness += 1; //Add Sadness
+            joys -= 1;
             print("sadness = " + sadness);
             Destroy(other.gameObject);
         }
@@ -35,9 +47,30 @@ public class Emotions : MonoBehaviour
 
     void ControlEmotion()
     {
-        if (joys == 1 && joys > sadness)
+        if (joys > sadness)
         {
-            
+
         }
+        
+        
+        if(sadness == 1)
+        {
+            FirstCloud.SetActive(true);
+        }
+        else if (sadness > 1 && sadness > joys)
+        {
+            FirstCloud.SetActive(true);
+            SecondCloud.SetActive(true);
+        }
+        else if (sadness > 2 && sadness > joys)
+        {
+            FirstCloud.SetActive(true);
+            SecondCloud.SetActive(true);
+            //Rain.SetActive(true);
+            RainParticleSystem.Play(true);
+        }
+        
+
+
     }
 }

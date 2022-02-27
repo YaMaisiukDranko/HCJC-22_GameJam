@@ -601,7 +601,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &645161409
 Transform:
   m_ObjectHideFlags: 0
@@ -933,7 +933,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &902094396
 Transform:
   m_ObjectHideFlags: 0
@@ -5826,7 +5826,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1221031808
 Transform:
   m_ObjectHideFlags: 0
@@ -6111,6 +6111,10 @@ MonoBehaviour:
   collectJoySound: {fileID: 0}
   joys: 0
   sadness: 0
+  FirstCloud: {fileID: 1221031807}
+  SecondCloud: {fileID: 645161408}
+  Rain: {fileID: 902094395}
+  RainParticleSystem: {fileID: 902094398}
 --- !u!1 &1450233146
 GameObject:
   m_ObjectHideFlags: 0
